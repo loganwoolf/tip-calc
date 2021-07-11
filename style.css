@@ -9,3 +9,6 @@
    --light2: hsl(189, 41%, 97%); /* Light grayish cyan */
    --light3: hsl(0, 0%, 100%); /* White */
 }
+body {
+   background: var(--light1);
+}
