@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+   --primary: hsl(172, 67%, 45%); /* Strong Cyan */
+   --dark1: hsl(183, 100%, 15%); /* Very dark cyan */
+   --dark2: hsl(186, 14%, 43%); /* Dark grayish cyan */
+   --dark3: hsl(184, 14%, 56%); /* Dark grayish cyan */
+   --light1: hsl(185, 41%, 84%); /* Light grayish cyan */
+   --light2: hsl(189, 41%, 97%); /* Light grayish cyan */
+   --light3: hsl(0, 0%, 100%); /* White */
+}
