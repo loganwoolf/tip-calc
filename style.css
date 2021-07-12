@@ -40,7 +40,7 @@ p {
 /* End Typography */
 
 main {
-   background: var(--light2);
+   background: var(--light3);
    border-radius: 1.5rem;
    /* width: max-content; */
    /* margin: 2rem; */
@@ -48,6 +48,36 @@ main {
    display: flex;
    flex-direction: column;
    gap: 2rem;
+}
+.options {
+   margin: 0 0.5rem;
+   display: flex;
+   flex-direction: column;
+   gap: 2rem;
+}
+.option {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}
+#price {
+   background-image: url(./images/icon-dollar.svg);
+}
+#people {
+   background-image: url(./images/icon-person.svg);
+}
+input[type=text] {
+   border: none;
+   width: auto;
+   text-align: right;
+   padding: 0.5rem 1rem;
+   background-color: var(--light2);
+   background-position: 1rem 50%;
+   background-repeat: no-repeat;
+   font-family: 'Space Mono', monospace;
+   font-size: 1.5rem;
+   font-weight: 700;
+   color: var(--dark1);
 }
 
 
