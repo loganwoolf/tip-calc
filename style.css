@@ -79,7 +79,32 @@ input[type=text] {
    font-weight: 700;
    color: var(--dark1);
 }
-
+.option-radio {
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+.option-radio > input {
+   visibility: hidden;
+   position: absolute;
+}
+input[type=radio]+label {
+   background-color: var(--dark1);
+   color: var(--light2);
+   font-size: 1.5rem;
+   font-weight: 700;
+   user-select: none;
+   padding-top: 0.25rem;
+   padding-bottom: 0.25rem;
+   text-align: center;
+   min-width: 8rem;
+   width: 26%
+}
+input[type=radio]:checked+label { /* WOW */
+   background-color: var(--primary);
+   color: var(--dark1);
+}
 
 .results {
    background: var(--dark1);
