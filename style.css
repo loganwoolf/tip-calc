@@ -88,7 +88,7 @@ input[type=text] {
    visibility: hidden;
    position: absolute;
 }
-input[type=radio]+label {
+.button-label {
    background-color: var(--dark1);
    color: var(--light2);
    font-size: 1.5rem;
@@ -103,6 +103,14 @@ input[type=radio]:checked+label { /* WOW */
    background-color: var(--primary);
    color: var(--dark1);
 }
+.editable {
+   user-select: unset;
+   background-color: var(--light2);
+   color: var(--dark2);
+}
+
+
+
 
 .results {
    background: var(--dark1);
