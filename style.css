@@ -80,12 +80,11 @@ input[type=text] {
    color: var(--dark1);
 }
 .option-radio {
-   display: flex;
-   flex-direction: row;
-   flex-wrap: wrap;
+   display: grid;
+   grid-template-columns: 9rem 9rem; /*Needs to change with width of screen*/
    gap: 1rem;
 }
-.option-radio > input {
+.option-radio > input { /*Hides actual radio button*/
    visibility: hidden;
    position: absolute;
 }
@@ -98,8 +97,7 @@ input[type=radio]+label {
    padding-top: 0.25rem;
    padding-bottom: 0.25rem;
    text-align: center;
-   min-width: 8rem;
-   width: 26%
+   border-radius: 5px;
 }
 input[type=radio]:checked+label { /* WOW */
    background-color: var(--primary);
