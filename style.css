@@ -108,7 +108,11 @@ input[type=radio]:checked+label { /* WOW */
    background-color: var(--light2);
    color: var(--dark2);
 }
-
+#custom-amount {
+   width: max-content;
+   height: 2.25rem;
+   padding: 0;
+}
 
 
 
