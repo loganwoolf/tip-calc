@@ -14,6 +14,20 @@ rates.map((rate, i) => {
 	radioButtons[i].labels[0].textContent = `${rate*100}%`
 });
 
+//select output elements
+const tipDisplay = document.getElementById('tip');
+const totalDisplay = document.getElementById('total');
+
+function pad(str) { // not yet working
+	if (str.length < 3) {
+		str = `0${str}`;
+		pad();
+	}
+	return str;
+}
+
+console.log(pad('a'));
+
 function calculate() {
 	let currentRate;
 	if (billField.value && guestsField.value) {
@@ -23,8 +37,12 @@ function calculate() {
 			.textContent
 			.slice(0,-1)
 			/100;
-		let tipAmount = parseInt((billField.value*100) * currentRate / guestsField.value)/100;
-		let totalAmount = parseInt((billField.value*100) * (1 + currentRate) / guestsField.value)/100;
+		let tipAmount = String(parseInt((billField.value*100) * currentRate / guestsField.value));
+		pad(tipAmount);
+
+		tipDisplay.textContent = `${tipAmount.substr(0,tipAmount.length-2)}.${tipAmount.substr(-2)}`;
+		let totalAmount = String(parseInt((billField.value*100) * (1 + currentRate) / guestsField.value));
+		totalDisplay.textContent = `${totalAmount.substr(0,totalAmount.length-2)}.${totalAmount.substr(-2)}`;
 		console.log(`Tip Amount: ${tipAmount}`)
 		console.log(`Total: ${totalAmount}`)
 		console.log(currentRate);
