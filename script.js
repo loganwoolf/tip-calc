@@ -18,18 +18,21 @@ rates.map((rate, i) => {
 const tipDisplay = document.getElementById('tip');
 const totalDisplay = document.getElementById('total');
 
-function pad(str) { // not yet working
-	if (str.length < 3) {
+
+function pad(num) {
+	let str = String(num);
+	if (str.length === 1) {
+		str = `00${str}`;
+	}
+	if (str.length === 2) {
 		str = `0${str}`;
-		pad();
 	}
 	return str;
 }
 
-console.log(pad('a'));
-
 function calculate() {
 	let currentRate;
+	//check if required fields are filled
 	if (billField.value && guestsField.value) {
 		currentRate = document
 			.querySelector('input[name=amount]:checked')
@@ -37,11 +40,11 @@ function calculate() {
 			.textContent
 			.slice(0,-1)
 			/100;
-		let tipAmount = String(parseInt((billField.value*100) * currentRate / guestsField.value));
-		pad(tipAmount);
+
+		let tipAmount = pad(String(parseInt((billField.value*100) * currentRate / guestsField.value)));
+		let totalAmount = pad(String(parseInt((billField.value*100) * (1 + currentRate) / guestsField.value)));
 
 		tipDisplay.textContent = `${tipAmount.substr(0,tipAmount.length-2)}.${tipAmount.substr(-2)}`;
-		let totalAmount = String(parseInt((billField.value*100) * (1 + currentRate) / guestsField.value));
 		totalDisplay.textContent = `${totalAmount.substr(0,totalAmount.length-2)}.${totalAmount.substr(-2)}`;
 		console.log(`Tip Amount: ${tipAmount}`)
 		console.log(`Total: ${totalAmount}`)
