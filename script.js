@@ -2,12 +2,12 @@
 
 // define tip rates available on buttons
 const rates = [0.12, 0.15, 0.18, 0.20, 0.25];
-// let currentRate;
 
 // select input elements
 const billField = document.getElementById('price');
 const guestsField = document.getElementById('people')
 const radioButtons = document.querySelectorAll('input[type=radio]');
+const resetButton = document.querySelector('.reset');
 
 //map and format rates to textContent of each button
 rates.map((rate, i) => {
@@ -49,11 +49,14 @@ function calculate() {
 	}
 }
 
+function resetFields() {
+	console.log('reset')
+}
 
 billField.addEventListener('input', calculate);
 guestsField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
-
+resetButton.addEventListener('click', resetFields);
 
 
 
