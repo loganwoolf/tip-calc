@@ -21,11 +21,8 @@ const totalDisplay = document.getElementById('total');
 
 function pad(num) {
 	let str = String(num);
-	if (str.length === 1) {
-		str = `00${str}`;
-	}
-	if (str.length === 2) {
-		str = `0${str}`;
+	while (str.length < 3 ) {
+		str = `0${str}`
 	}
 	return str;
 }
@@ -56,6 +53,8 @@ function calculate() {
 billField.addEventListener('input', calculate);
 guestsField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
+
+
 
 
 
