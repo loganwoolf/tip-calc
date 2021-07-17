@@ -50,7 +50,10 @@ function calculate() {
 }
 
 function resetFields() {
-	console.log('reset')
+	billField.value = null;
+	guestsField.value = null;
+	radioButtons.forEach(button => button.checked = false);
+	
 }
 
 billField.addEventListener('input', calculate);
