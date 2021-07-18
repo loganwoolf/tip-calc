@@ -50,10 +50,12 @@ function calculate() {
 }
 
 function resetFields() {
+	const ZERO = '0.00';
 	billField.value = null;
 	guestsField.value = null;
 	radioButtons.forEach(button => button.checked = false);
-	
+	tipDisplay.textContent = ZERO;
+	totalDisplay.textContent = ZERO;
 }
 
 billField.addEventListener('input', calculate);
