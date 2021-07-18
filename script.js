@@ -57,6 +57,18 @@ function resetFields() {
 	totalDisplay.textContent = ZERO;
 }
 
+function checkPrice() { // not working with key held down
+	const regexPrice = /^\d+(\.\d{0,2})?$/;
+	let str = billField.value;
+	console.log(str);
+	if (!regexPrice.test(str)) {
+		billField.value = str.substr(0, str.length - 1);
+		calculate();
+	}
+}
+
+billField.addEventListener('keyup', checkPrice);
+
 billField.addEventListener('input', calculate);
 guestsField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
