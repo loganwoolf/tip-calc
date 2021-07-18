@@ -19,8 +19,7 @@ const tipDisplay = document.getElementById('tip');
 const totalDisplay = document.getElementById('total');
 
 
-function pad(num) {
-	let str = String(num);
+function pad(str) {
 	while (str.length < 3 ) {
 		str = `0${str}`
 	}
