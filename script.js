@@ -57,21 +57,24 @@ function resetFields() {
 	totalDisplay.textContent = ZERO;
 }
 
-function checkPrice() { // not working with key held down
+function checkPrice() { //still allows for inserting any character in existing string
 	const regexPrice = /^\d+(\.\d{0,2})?$/;
 	let str = billField.value;
-	console.log(str);
+	if (str == '.') {
+		billField.value = '0.';
+		return;
+	}
 	if (!regexPrice.test(str)) {
 		billField.value = str.substr(0, str.length - 1);
 		calculate();
 	}
 }
 
-billField.addEventListener('keyup', checkPrice);
-
+billField.addEventListener('input', checkPrice);
 billField.addEventListener('input', calculate);
-guestsField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
+
+guestsField.addEventListener('input', calculate);
 resetButton.addEventListener('click', resetFields);
 
 
