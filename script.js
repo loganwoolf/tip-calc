@@ -1,11 +1,11 @@
-
+const ZERO = '0.00';
 
 // define tip rates available on buttons
 const rates = [0.12, 0.15, 0.18, 0.20, 0.25];
 
 // select input elements
 const billField = document.getElementById('price');
-const guestsField = document.getElementById('people')
+const guestsField = document.getElementById('people');
 const radioButtons = document.querySelectorAll('input[type=radio]');
 const resetButton = document.querySelector('.reset');
 
@@ -49,7 +49,6 @@ function calculate() {
 }
 
 function resetFields() {
-	const ZERO = '0.00';
 	billField.value = null;
 	guestsField.value = null;
 	radioButtons.forEach(button => button.checked = false);
@@ -58,8 +57,8 @@ function resetFields() {
 }
 
 function checkPrice() { //still allows for inserting any character in existing string
-	const regexPrice = /^\d+(\.\d{0,2})?$/;
-	let str = billField.value;
+	const regexPrice = /^\d+(\.\d{0,2})?$/g;
+	const str = billField.value;
 	if (str == '.') {
 		billField.value = '0.';
 		return;
@@ -70,10 +69,20 @@ function checkPrice() { //still allows for inserting any character in existing s
 	}
 }
 
+function checkNumber() {
+	const regexNumber = /^\d{0,2}$/;
+	const field = guestsField.value;
+	console.log(field);
+	if (!regexNumber.test(field)) {
+		guestsField.value = field.substr(0, field.length - 1);
+		calculate();
+	}
+}
+
 billField.addEventListener('input', checkPrice);
 billField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
-
+guestsField.addEventListener('input', checkNumber);
 guestsField.addEventListener('input', calculate);
 resetButton.addEventListener('click', resetFields);
 
