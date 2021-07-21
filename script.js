@@ -7,6 +7,7 @@ const rates = [0.12, 0.15, 0.18, 0.20, 0.25];
 const billField = document.getElementById('price');
 const guestsField = document.getElementById('people');
 const radioButtons = document.querySelectorAll('input[type=radio]');
+const customField = document.getElementById('custom-amount');
 const resetButton = document.querySelector('.reset');
 
 //map and format rates to textContent of each button
@@ -26,16 +27,26 @@ function pad(str) {
 	return str;
 }
 
+function findRate() {
+	for (let i in radioButtons) {
+		if (radioButtons[i].checked) {
+			return rates[i];
+		}
+	}
+}
+
 function calculate() {
-	let currentRate;
+	let currentRate = findRate();
 	//check if required fields are filled
 	if (billField.value && guestsField.value) {
-		currentRate = document
-			.querySelector('input[name=amount]:checked')
-			.labels[0]
-			.textContent
-			.slice(0,-1)
-			/100;
+		// replace this section to read rate from rates array
+		// currentRate = document
+		// 	.querySelector('input[name=amount]:checked')
+		// 	.labels[0]
+		// 	.textContent
+		// 	.slice(0,-1)
+		// 	/100;
+		
 
 		let tipAmount = pad(String(parseInt((billField.value*100) * currentRate / guestsField.value)));
 		let totalAmount = pad(String(parseInt((billField.value*100) * (1 + currentRate) / guestsField.value)));
@@ -79,13 +90,28 @@ function checkNumber() {
 	}
 }
 
+function handleCustomInput() {
+	let num = customField.value;
+	radioButtons[5].checked = true;
+	console.log(num);
+	rates[5] = num/100;
+	console.log(rates);
+	calculate();
+}
+
+function handleCustomClick() {
+	radioButtons[5].checked = true;
+	calculate();
+}
+
 billField.addEventListener('input', checkPrice);
 billField.addEventListener('input', calculate);
 radioButtons.forEach(button => button.addEventListener('click', calculate));
 guestsField.addEventListener('input', checkNumber);
 guestsField.addEventListener('input', calculate);
 resetButton.addEventListener('click', resetFields);
-
+customField.addEventListener('click', handleCustomClick);
+customField.addEventListener('input', handleCustomInput);
 
 
 
