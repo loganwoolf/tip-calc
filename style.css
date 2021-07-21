@@ -60,6 +60,9 @@ main {
    flex-direction: column;
    gap: 0.5rem;
 }
+input:focus {
+   outline: 3px solid var(--primary);
+}
 #price {
    background-image: url(./images/icon-dollar.svg);
 }
@@ -113,10 +116,11 @@ input[type=radio]:checked+label { /* WOW */
    /* height: 2.5rem; */
    padding: 0;
    text-align: center;
+   border-radius: 3px;
 }
-
-
-
+#custom-amount:focus {
+   outline: none;
+}
 .results {
    background: var(--dark1);
    border-radius: 1rem;
@@ -147,7 +151,7 @@ input[type=radio]:checked+label { /* WOW */
 }
 .reset {
    border: none;
-   background-color: var(--primary);
+   background-color: var(--dark2);
    font-family: 'Space Mono', monospace;
    font-weight: 700;
    font-size: 1.25rem;
@@ -156,6 +160,10 @@ input[type=radio]:checked+label { /* WOW */
    padding: 0.5rem;
    /* margin: 0.5rem; */
    border-radius: 5px;
+   transition: 100ms ease-in-out;
+}
+.reset:hover {
+   background-color: var(--primary);
 }
 
 @media screen and (min-width: 53rem) {
