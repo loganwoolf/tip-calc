@@ -81,7 +81,7 @@ function checkPrice() { //still allows for inserting any character in existing s
 
 //a function that attempts to disallow invalid inputs for a 2 digit number
 function checkNumber() {
-	const regexNumber = /^\d{0,2}$/;
+	const regexNumber = /^[1-9]([0-9])?$/;
 	const field = guestsField.value;
 	//if an invalid character is entered, remove last character in the string
 	if (!regexNumber.test(field)) {
